@@ -23,6 +23,7 @@
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
+            <version>4.4.3</version>
         </dependency>
     </dependencies>
 
@@ -55,7 +56,7 @@
             <profile.propertyFile>src/main/resources/local/liquibase.properties</profile.propertyFile>
             <profile.changeLogFile>src/main/resources/master.xml</profile.changeLogFile>
             <profile.logging>debug</profile.logging>
-            <profile.changelogSchemaName>test</profile.changelogSchemaName>
+            <profile.changelogSchemaName>taxi-service</profile.changelogSchemaName>
         </properties>
     </profile>
 </profiles>

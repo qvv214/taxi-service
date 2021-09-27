@@ -8,5 +8,7 @@ create table if not exists car
     createDttm timestamptz not null default current_timestamp
 );
 
+GO
+
 alter table car
     add constraint car_pk primary key (id);
