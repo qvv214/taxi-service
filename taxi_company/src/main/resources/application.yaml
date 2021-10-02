@@ -1,0 +1,13 @@
+application:
+  rabbit:
+    enable: true
+
+  broker:
+    receive-queue: moscow_queue
+
+  level:
+    ru.digitalleague.core: debug
+
+
+server:
+  port: 8082
