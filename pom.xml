@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ru.digitalleague</groupId>
-    <artifactId>my-taxi-service</artifactId>
+    <artifactId>taxi-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>my-taxi-service</name>
-    <description>my-taxi-service</description>
+    <name>taxi-service</name>
+    <description>taxi-service</description>
 
     <packaging>pom</packaging>
 
@@ -21,6 +21,7 @@
         <module>core</module>
         <module>bom</module>
         <module>migration</module>
+        <module>taxi_company</module>
     </modules>
 
     <dependencies>
