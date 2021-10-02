@@ -29,4 +29,18 @@ public interface TaxiInfoMapper {
     })
     @Select("SELECT driver_id, last_name, first_name, middle_name, level, car_model, create_dttm FROM taxi_drive_info")
     List<TaxiDriverInfoModel> getAllDrivers();
+
+    /**
+     * Находим очередь, в которую будем отправлять сообщения по названию города.
+     * */
+    @Select("SELECT queue FROM city_queue where name = #{cityName}")
+    String getQueueByCity(String cityName);
+
+    int insert(TaxiDriverInfoModel record);
+
+    TaxiDriverInfoModel selectByPrimaryKey(Long driverId);
+
+    int updateByPrimaryKey(TaxiDriverInfoModel record);
+
+    List<TaxiDriverInfoModel> selectByLastName(String lastName);
 }

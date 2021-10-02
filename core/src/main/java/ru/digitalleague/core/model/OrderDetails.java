@@ -19,4 +19,8 @@ public class OrderDetails {
      */
     private String carModel;
 
+    /**
+     * Название города.
+     */
+    private String city;
 }
