@@ -3,11 +3,10 @@ application:
     enable: true
 
   broker:
-    receive-queue: moscow_queue
+    receive-queue:
 
   level:
     ru.digitalleague.core: debug
 
-
 server:
-  port: 8082
+  port:

@@ -8,6 +8,7 @@
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../bom/pom.xml</relativePath>
     </parent>
+
     <groupId>ru.digitalleague</groupId>
     <artifactId>migration</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -15,11 +16,11 @@
     <description>migration</description>
 
     <dependencies>
-
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>

@@ -4,13 +4,15 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>ru.digitalleague</groupId>
-        <artifactId>my-taxi-service</artifactId>
+        <artifactId>taxi-service</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+
     <artifactId>bom</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>bom</name>
     <description>bom</description>
+
     <properties>
         <java.version>1.8</java.version>
         <maven.compiler.source>1.8</maven.compiler.source>
