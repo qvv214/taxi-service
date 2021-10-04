@@ -6,7 +6,7 @@ application:
     receive-queue:
 
   level:
-    ru.digitalleague.core: debug
+    ru.digitalleague.taxy_company: debug
 
 server:
   port:
