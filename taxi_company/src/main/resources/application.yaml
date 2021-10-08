@@ -1,6 +1,6 @@
 application:
   rabbit:
-    enable: true
+    enable: false
 
   broker:
     receive-queue:

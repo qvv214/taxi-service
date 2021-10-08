@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import ru.digitalleague.core.api.TaxiService;
-import ru.digitalleague.core.mapper.TaxiInfoMapper;
 import ru.digitalleague.core.model.OrderDetails;
+import ru.digitalleague.core.service.TaxiServiceImpl;
 
 @Slf4j
 @RestController
 public class Controller {
 
     @Autowired
-    private TaxiService taxiService;
+    private TaxiServiceImpl taxiService;
 
     @PostMapping("/order-taxi")
     public ResponseEntity<String> receive(@RequestBody OrderDetails orderDetails) {
