@@ -2,6 +2,7 @@ package ru.digitalleague.core.config;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -18,9 +19,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/auth/**").authenticated()
-                .antMatchers("/registration/**").permitAll()
-                .antMatchers("/home").permitAll()
+                .antMatchers(HttpMethod.GET,"/auth/**").authenticated()
+                .antMatchers(HttpMethod.POST,"/registration/**").permitAll()
+                .antMatchers(HttpMethod.GET,"/home").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/deleteUser/**").hasAuthority("root")
+                .antMatchers(HttpMethod.GET, "/showAllUsers").hasAuthority("user")
                 .and()
                 .formLogin()
                 .and()

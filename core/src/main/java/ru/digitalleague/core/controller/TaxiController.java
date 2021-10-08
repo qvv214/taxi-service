@@ -12,7 +12,7 @@ import ru.digitalleague.core.service.TaxiServiceImpl;
 
 @Slf4j
 @RestController
-public class Controller {
+public class TaxiController {
 
     @Autowired
     private TaxiServiceImpl taxiService;

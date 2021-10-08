@@ -7,7 +7,7 @@ create table if not exists authority
 
 alter table authority
     add constraint authority_user_account_fk foreign key (user_account_id)
-        references user_account (id);
+        references user_account (id) on delete cascade;
 
 create index if not exists authority_ux
     on authority using hash (user_account_id)
