@@ -1,6 +1,6 @@
 application:
   rabbit:
-    enable: false
+    enable: true
 
 logging:
   level:

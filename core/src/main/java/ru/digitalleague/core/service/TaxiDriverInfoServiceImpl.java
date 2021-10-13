@@ -17,7 +17,7 @@ import ru.digitalleague.core.model.TaxiDriverInfoModel;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class TaxiInfoServiceImpl implements TaxiInfoService {
+public class TaxiDriverInfoServiceImpl implements TaxiDriverInfoService {
 
     private final TaxiInfoMapper taxiInfoMapper;
 

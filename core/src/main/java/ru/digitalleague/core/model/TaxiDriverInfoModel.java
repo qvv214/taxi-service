@@ -14,32 +14,34 @@ import java.time.OffsetDateTime;
 public class TaxiDriverInfoModel {
 
     private Long driverId;
-
     /**
      * Фамилия.
      */
     private String lastName;
-
     /**
      * Имя.
      */
     private String firstName;
-
-    /**
-     * Отчество.
-     */
-    private String middleName;
-
     /**
      * Уровень.
      */
     private int level;
-
     /**
-     * Модель авто (должна быть ENUM).
+     * Рейтинг
      */
-    private String carModel;
-
+    private double rating;
+    /**
+     * Занят водитель или нет
+     */
+    private boolean busy;
+    /**
+     * Модель авто
+     */
+    private int carModel;
+    /**
+     * Город
+     */
+    private int city;
     /**
      * Дата создания.
      */
