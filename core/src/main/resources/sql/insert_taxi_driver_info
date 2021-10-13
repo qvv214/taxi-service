@@ -1,4 +1,9 @@
-insert into taxi_drive_info (driver_id, last_name, first_name, level, car_model, create_dttm) values (1, 'LLelweln', 'Leeanne', 5, 'X5 M', '03/04/2021');
+
+
+
+insert into taxi_drive_info (driver_id, last_name, first_name, level, rating, busy, car_model, city, create_dttm) values (1, 'LLelweln', 'Leeanne', 5, 5, true, 1, 1, '03/04/2021');
+
+
 insert into taxi_drive_info (driver_id, last_name, first_name, level, car_model, create_dttm) values (2, 'Grahlman', 'Adena', 2, 'riolet', '24/02/2021');
 insert into taxi_drive_info (driver_id, last_name, first_name, level, car_model, create_dttm) values (3, 'Oris', 'Rossie', 1, 'S10', '06/03/2021');
 insert into taxi_drive_info (driver_id, last_name, first_name, level, car_model, create_dttm) values (4, 'Ondrousek', 'Hortensia', 3, 'Laser', '22/07/2021');

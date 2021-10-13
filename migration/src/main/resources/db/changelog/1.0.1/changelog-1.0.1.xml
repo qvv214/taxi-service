@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="changelog-1.0" author="aiksanov">
+        <sqlFile path="sql/car.sql" relativeToChangelogFile="true" endDelimiter="\nGO"/>
+        <rollback>
+            <sqlFile path="sql/rollback/car_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="changelog-1.1" author="aiksanov">
+        <sqlFile path="sql/city_queue.sql" relativeToChangelogFile="true" endDelimiter="\nGO"/>
+        <rollback>
+            <sqlFile path="sql/rollback/city_queue_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2021-10-14 19:00:00" author="aiksanov">
+        <sqlFile path="sql/drive_level.sql" relativeToChangelogFile="true" stripComments="true"/>
+        <rollback>
+            <sqlFile path="sql/rollback/drive_level_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

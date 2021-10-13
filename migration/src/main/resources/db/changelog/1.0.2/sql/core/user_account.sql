@@ -1,4 +1,4 @@
-create table if not exists user_account
+    create table if not exists user_account
 (
     id       bigserial primary key,
     login    varchar(100) unique not null,
