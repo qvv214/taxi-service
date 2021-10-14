@@ -1,5 +1,6 @@
 package ru.digitalleague.taxi_company.model;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
 @Data
@@ -23,5 +24,4 @@ public class OrderDetails {
      * Название города.
      */
     private String city;
-
 }

@@ -4,27 +4,44 @@ import liquibase.integration.spring.SpringLiquibase;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.sql.DataSource;
-
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.amqp.rabbit.listener.MessageListenerContainer;
-import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-import ru.digitalleague.taxi_company.listener.OrderListener;
-
-@Configuration
 @Slf4j
+@Configuration
+@EnableSwagger2
 public class ApplicationConfiguration {
 
     @Value("${application.broker.receive-queue}")
     private String queueName;
+
+    @Value("${server.port}")
+    private String port;
+
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+
+    @Bean
+    public String getPort() {
+        return port;
+    }
 
     @Bean
     public ConnectionFactory connectionFactory() {
@@ -57,6 +74,7 @@ public class ApplicationConfiguration {
         return new Queue(queueName);
     }
 
+
     @Bean
     public DataSource getDataSource() {
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
@@ -74,14 +92,26 @@ public class ApplicationConfiguration {
         return liquibase;
     }
 
-    @Bean
-    public MessageListenerContainer messageListenerContainer(ConnectionFactory connectionFactory) {
-        SimpleMessageListenerContainer simpleMessageListenerContainer = new SimpleMessageListenerContainer();
-        simpleMessageListenerContainer.setConnectionFactory(connectionFactory);
-        // устанавливаем очередь, которую будет слушать приложение
-        simpleMessageListenerContainer.setQueues(myQueue3());
-        simpleMessageListenerContainer.setMessageListener(new OrderListener());
-        return simpleMessageListenerContainer;
 
+    @Bean
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("ru.digitalleague.taxi_company"))
+                .paths(PathSelectors.any())
+                .build()
+                .apiInfo(apiInfo());
+    }
+
+    private ApiInfo apiInfo() {
+        return new ApiInfo(
+                "Taxi_company",
+                "Модуль предназначенный для поиска свободных водителей и распределения задач между ними",
+                "0.0.1-SNAPSHOT",
+                "",
+                new Contact("", "", ""),
+                "",
+                ""
+        );
     }
 }

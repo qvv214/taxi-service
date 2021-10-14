@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ru.digitalleague.taxi_company.mapper.TaxiDriveInfoMapper">
+    <resultMap id="BaseResultMap" type="ru.digitalleague.taxi_company.model.TaxiDriverInfoModel">
+        <id column="drive_id" jdbcType="BIGINT" property="id"/>
+        <result column="last_name"    property="lastName"/>
+        <result column="first_name"   property="firstName"/>
+        <result column="level"        property="level"/>
+        <result column="rating"       property="rating"/>
+        <result column="busy"         property="authority"/>
+        <result column="car_model"    property="carModel"/>
+        <result column="city"         property="city"/>
+        <result column="create_dttm"  property="createDttm"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        driver_id, last_name, first_name, level, rating, busy, car_model, city, create_dttm
+    </sql>
+    <select id="findTaxiDriveForTrip" resultMap="BaseResultMap">
+        select * from taxi_drive_info;
+--         select * from taxi_drive_info t
+--         left join city_queue c on c.city_id = t.city
+--         where c.name = #{city_name,jdbcType=VARCHAR}) and t.busy = #{busy,jdbcType=BIT}
+    </select>
+</mapper>

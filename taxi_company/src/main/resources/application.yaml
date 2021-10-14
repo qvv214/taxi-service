@@ -1,12 +1,12 @@
 application:
   rabbit:
-    enable: false
+    enable: true
 
   broker:
-    receive-queue:
+    receive-queue: "value"
 
   level:
     ru.digitalleague.taxy_company: debug
 
 server:
-  port:
+  port: 8080
