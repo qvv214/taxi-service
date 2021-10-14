@@ -2,7 +2,7 @@ package ru.digitalleague.core.service;
 
 import ru.digitalleague.core.model.TaxiDriverInfoModel;
 
-public interface TaxiInfoService {
+public interface TaxiDriverInfoService {
 
     int insert(TaxiDriverInfoModel record);
 
