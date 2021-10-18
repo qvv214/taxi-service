@@ -8,6 +8,7 @@ create table if not exists taxi_drive_info
     first_name  text    not null,
     level       int     not null,
     rating      double precision  check (rating > 0 and rating <= 5),
+    price       bigint  not null,
     busy        boolean not null,
     car_model   int     not null,
     city        int     not null,
