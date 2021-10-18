@@ -1,8 +1,5 @@
 package ru.digitalleague.core.api;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.extern.slf4j.Slf4j;
@@ -15,7 +12,6 @@ import org.springframework.util.ObjectUtils;
 
 import ru.digitalleague.core.mapper.TaxiInfoMapper;
 import ru.digitalleague.core.model.OrderDetails;
-import ru.digitalleague.core.model.TaxiDriverInfoModel;
 
 import java.io.IOException;
 

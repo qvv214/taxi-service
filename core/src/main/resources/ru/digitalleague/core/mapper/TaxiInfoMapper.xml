@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ru.digitalleague.core.mapper.TaxiInfoMapper">
     <resultMap id="taxiDriver"
-               type="ru.digitalleague.core.model.TaxiDriverInfoModel">
+               type="TaxiDriverInfoModel">
         <id property="driverId" column="driver_id"/>
         <result property="lastName" column="last_name"/>
         <result property="firstName" column="first_name"/>
@@ -41,7 +41,7 @@
         where last_name = #{lastName}
     </select>
 
-    <insert id="insert" parameterType="ru.digitalleague.core.model.TaxiDriverInfoModel">
+    <insert id="insert" parameterType="TaxiDriverInfoModel">
         <!--@mbg.generated-->
         <selectKey resultType="Long" keyProperty="driverId" order="BEFORE">
             select nextval('taxi_driver_seq');
@@ -54,7 +54,7 @@
         #{createDttm,jdbcType=TIMESTAMP})
     </insert>
 
-    <update id="updateByPrimaryKey" parameterType="ru.digitalleague.core.model.TaxiDriverInfoModel">
+    <update id="updateByPrimaryKey" parameterType="TaxiDriverInfoModel">
         <!--@mbg.generated-->
         update taxi_drive_info
         set last_name = #{lastName,jdbcType=VARCHAR},
