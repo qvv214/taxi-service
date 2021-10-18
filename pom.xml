@@ -8,6 +8,7 @@
         <version>2.5.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>ru.digitalleague</groupId>
     <artifactId>taxi-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -22,6 +23,7 @@
         <module>bom</module>
         <module>migration</module>
         <module>taxi_company</module>
+        <module>dto</module>
     </modules>
 
     <dependencies>
