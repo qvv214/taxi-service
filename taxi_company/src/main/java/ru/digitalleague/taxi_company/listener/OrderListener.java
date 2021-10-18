@@ -9,8 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.client.RestTemplate;
-import ru.digitalleague.taxi_company.model.OrderDetails;
-import ru.digitalleague.taxi_company.model.TaxiDriverInfoModel;
+import ru.digitalleague.core.model.OrderDetails;
+import ru.digitalleague.core.model.TaxiDriverInfoModel;
+import ru.digitalleague.taxi_company.model.TripInfoModel;
 import ru.digitalleague.taxi_company.service.TaxiDriveInfoServiceImpl;
 
 import java.io.IOException;
@@ -25,11 +26,11 @@ public class OrderListener {
     @Autowired
     private TaxiDriveInfoServiceImpl taxiDriveInfoService;
 
-    @Autowired
-    private RestTemplate restTemplate;
-
-    @Autowired
-    private String port;
+//    @Autowired
+//    private RestTemplate restTemplate;
+//
+//    @Autowired
+//    private String port;
 
     /**
      *
@@ -45,11 +46,9 @@ public class OrderListener {
         if (ObjectUtils.isEmpty(taxiDriverInfoModel)) {
             log.info("Нет подходящего таксиста...");
         } else {
-            taxiDriveInfoService.createTrip(taxiDriverInfoModel);
-            String url = "http://localhost:" + port + "/trip-start";
-            ResponseEntity<TaxiDriverInfoModel> response = restTemplate.postForEntity(url, taxiDriverInfoModel, TaxiDriverInfoModel.class);
+            taxiDriveInfoService.createTrip(taxiDriverInfoModel.getDriverId(), orderDetails.getClientNumber());
 
-            log.info(response.getStatusCode() + " " + response.getBody());
+            log.info(taxiDriverInfoModel.toString());
         }
     }
 }
